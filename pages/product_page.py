@@ -9,4 +9,11 @@ class ProductPage(BasePage):
         button = self.browser.find_element(*ProductPageLocators.PRODUCT_BUTTON)
         button.click()
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE),\
+            "Success message is presented, but should not be"
+
+    def should_dissappear_of_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE),\
+            "Success message is presented, but should not be"
 
